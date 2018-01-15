@@ -3,7 +3,7 @@
     <name>video-mobile</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.104:8101" />
+    <content original-src="index.html" src="http://192.168.1.104:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -87,6 +87,5 @@
     <allow-navigation href="http://192.168.1.104:8101" />
     <plugin name="cordova-plugin-camera" spec="^4.0.1" />
     <allow-navigation href="http://192.168.1.104:8100" />
-    <allow-navigation href="http://192.168.101.5:8101" />
     <engine name="ios" spec="4.5.4" />
 </widget>

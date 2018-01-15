@@ -1,23 +1,29 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Video Creator Mobile
+      Video Creator
     </ion-title>
+    <ion-buttons end>
+      <button ion-button
+        (click)="addScene()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <img [src]="base64Image"
-    *ngIf="base64Image" />
+  <ion-slides [pager]="true">
+    <ion-slide *ngFor="let scene of scenes">
+      <button ion-button
+        (click)="addImage(scene)"
+        *ngIf="!scene.base64Image">Add image</button>
+      <img [src]="scene.base64Image"
+        *ngIf="scene.base64Image" />
+      <div class="slide-bottom">
+        <ion-textarea placeholder="Add text"></ion-textarea>
+      </div>
+    </ion-slide>
+  </ion-slides>
 
-  <ion-item>
-    <ion-label color="primary"
-      stacked>Stacked Label</ion-label>
-    <ion-input type="text"
-      placeholder="text"></ion-input>
-  </ion-item>
-
-  <button ion-button
-    round
-    (click)="click()">new scene</button>
 </ion-content>
