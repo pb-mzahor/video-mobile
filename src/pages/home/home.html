@@ -7,15 +7,17 @@
 </ion-header>
 
 <ion-content>
-  <div>We must WIN! Hello</div>
+  <img [src]="base64Image"
+    *ngIf="base64Image" />
+
+  <ion-item>
+    <ion-label color="primary"
+      stacked>Stacked Label</ion-label>
+    <ion-input type="text"
+      placeholder="text"></ion-input>
+  </ion-item>
 
   <button ion-button
     round
-    (click)="click()">Round Button</button>
-
-  <!-- <span>{{pictures}}</span> -->
-
-  <span>{{pictureSrc}}</span>
-
-  <img [src]="base64Image" *ngIf="base64Image" />
+    (click)="click()">new scene</button>
 </ion-content>
