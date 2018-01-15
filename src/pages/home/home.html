@@ -5,6 +5,7 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button
+        icon-only
         (click)="addScene()">
         <ion-icon name="add"></ion-icon>
       </button>
@@ -15,14 +16,18 @@
 <ion-content>
   <ion-slides [pager]="true">
     <ion-slide *ngFor="let scene of scenes">
-      <button ion-button
-        (click)="addImage(scene)"
-        *ngIf="!scene.base64Image">Add image</button>
-      <img [src]="scene.base64Image"
-        *ngIf="scene.base64Image" />
-      <div class="slide-bottom">
-        <ion-textarea placeholder="Add text"></ion-textarea>
+      <div class="scene-media-container">
+        <div class="scene-media">
+          <button ion-button
+            (click)="addImage(scene)"
+            *ngIf="!scene.base64Image">Add image</button>
+          <img [src]="scene.base64Image"
+            *ngIf="scene.base64Image" />
+        </div>
       </div>
+      <ion-input class="scene-text"
+        placeholder="Add text"
+        clearInput></ion-input>
     </ion-slide>
   </ion-slides>
 
