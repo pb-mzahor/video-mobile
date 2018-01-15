@@ -21,11 +21,7 @@ export class HomePage {
     this.scenes = [];
     this.scenes.push({});
   }
-
-  ngAfterViewInit() {
-    this.slides.freeMode = true;
-  }
-
+  
   async addScene() {
     this.scenes.push({});
     setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
