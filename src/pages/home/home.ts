@@ -5,6 +5,7 @@ import { Camera } from '@ionic-native/camera';
 import { clamp } from 'ionic-angular/util/util';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
+import { CloudinaryService } from '../../services/CloudinaryService';
 
 @Component({
   selector: 'page-home',
@@ -17,11 +18,12 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     public camera: Camera,
+    public cloudinaryService: CloudinaryService,
   ) {
     this.scenes = [];
     this.scenes.push({});
   }
-  
+
   async addScene() {
     this.scenes.push({});
     setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
@@ -33,8 +35,8 @@ export class HomePage {
       destinationType: this.camera.DestinationType.DATA_URL
     });
 
-    const base64Image = `data:image/jpeg;base64,${imageData}`;
-
-    scene.base64Image = base64Image;
+    scene.base64Image = `data:image/jpeg;base64,${imageData}`;
+    scene.imageUrl = await this.cloudinaryService.uploadBase64Image(scene.base64Image);
+    console.log(scene.imageUrl);
   }
 }
