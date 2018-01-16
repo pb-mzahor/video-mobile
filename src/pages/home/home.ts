@@ -6,12 +6,14 @@ import { clamp } from 'ionic-angular/util/util';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { CloudinaryService } from '../../services/CloudinaryService';
+import {PlayPage} from '../play/play';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  playPage = PlayPage;
   public scenes: any[];
   @ViewChild(Slides) slides: Slides;
 
