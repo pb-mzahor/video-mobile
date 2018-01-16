@@ -7,13 +7,15 @@ import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { PlayPage } from '../pages/play/play';
 import { CloudinaryService } from '../services/CloudinaryService';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    PlayPage
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    PlayPage
   ],
   providers: [
     StatusBar,
