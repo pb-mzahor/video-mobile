@@ -69,8 +69,12 @@ page-home {
     }
     
     .bottom-controls {
+        margin: 10px;
+
         button {
             width: 120px;
+            flex-grow: 1;
+            border-radius: 10px;
         }
     }
 }
