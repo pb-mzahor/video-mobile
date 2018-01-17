@@ -10,9 +10,11 @@
           *ngIf="scene.loading"
           src="../../assets/imgs/uploading.gif"
           alt="">
-        <input class="scene-text"
-          placeholder="Add text"
-          type="text">
+        <div class="scene-text-container">
+          <input class="scene-text"
+            placeholder="Add text"
+            type="text">
+        </div>
       </div>
     </ion-slide>
   </ion-slides>
@@ -20,7 +22,8 @@
 
 <ion-footer>
   <div class="bottom-controls">
-    <button ion-button icon-left
+    <button ion-button
+      icon-left
       (click)="addScene()">
       <ion-icon name="add"></ion-icon>Add scene</button>
     <button ion-button

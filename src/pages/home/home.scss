@@ -48,21 +48,24 @@ page-home {
         align-self: center;
     }
 
-    .scene-text {
+    .scene-text-container {
         position: absolute;
         bottom: 10px;
-        flex-grow: 0;
-        padding: 10px !important;
         left: 10px;
         right: 10px;
-        // height: 2em;
-        border-radius: 10px;
-        font-size: 26px;
-        border: 1px dashed #ccc;
-        padding-bottom: 20px;
-        background-color: rgba(240, 240, 240, 0.6);
-        outline: none;
-        box-shadow: none;
+        flex-grow: 0;
+
+        .scene-text {
+            padding: 10px !important;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 26px;
+            border: 1px dashed #ccc;
+            padding-bottom: 20px;
+            background-color: rgba(240, 240, 240, 0.6);
+            outline: none;
+            box-shadow: none;
+        }
     }
     
     .bottom-controls {
