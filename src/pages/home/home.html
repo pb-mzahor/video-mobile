@@ -2,6 +2,7 @@
   <ion-slides [pager]="true">
     <ion-slide *ngFor="let scene of scenes">
       <div class="scene-media-container"
+        (click)="addImage(scene)"
         [style.background-image]="scene.imageUrlStyle">
         <button class="media-button"
           (click)="addImage(scene)"
@@ -22,11 +23,13 @@
 
 <ion-footer>
   <div class="bottom-controls">
-    <button ion-button outline
+    <button ion-button
+      outline
       icon-left
       (click)="addScene()">
       <ion-icon name="add"></ion-icon>Add scene</button>
     <button ion-button
+      class="juggle-button"
       [navPush]="playPage">Juggle</button>
   </div>
 </ion-footer>

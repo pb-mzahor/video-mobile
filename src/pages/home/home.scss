@@ -22,6 +22,7 @@ page-home {
         display: flex;
         justify-content: center;
         border-radius: 10px;
+        background-image: linear-gradient(to top, #ccafd9 0%, #97bde1 100%);
         background-color: rgb(255, 255, 255);
         background-repeat: no-repeat;
         background-size: cover;
@@ -30,7 +31,7 @@ page-home {
 
     .media-button {
         align-self: center;
-        background: url(../../assets/imgs/camera-plus.svg);
+        background: url(../../assets/imgs/add-media.svg);
         background-repeat: no-repeat;
         height: 80px;
         width: 80px;
@@ -75,6 +76,11 @@ page-home {
             width: 120px;
             flex-grow: 1;
             border-radius: 10px;
+
+            &.juggle-button {
+                font-weight: bold;
+                background-image: linear-gradient(258deg, #009cff, #bc49ff);
+            }
         }
     }
 }
