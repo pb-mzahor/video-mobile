@@ -18,8 +18,10 @@ export class CloudinaryService {
 
         const response: any = await this.http.post(url, fd).toPromise();
 
-        var redicertToFbUrl = response.videosYouCanCrosspostURL;
-        window.open(redicertToFbUrl, '_system');
-        return response.success;
+        return response.secure_url;
+
+        // var redicertToFbUrl = response.videosYouCanCrosspostURL;
+        // window.open(redicertToFbUrl, '_system');
+        // return response.success;
     }
 }

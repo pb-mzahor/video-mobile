@@ -1,37 +1,29 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Juggler
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button
-        icon-only
-        (click)="addScene()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
   <ion-slides [pager]="true">
     <ion-slide *ngFor="let scene of scenes">
-      <div class="scene-media-container">
-        <div class="scene-media">
-          <button ion-button
-            (click)="addImage(scene)"
-            *ngIf="!scene.base64Image">Add image</button>
-          <img [src]="scene.base64Image"
-            *ngIf="scene.base64Image" />
-        </div>
+      <div class="scene-media-container"
+        [style.background-image]="scene.imageUrlStyle">
+        <button class="media-button"
+          (click)="addImage(scene)"
+          *ngIf="!scene.base64Image && !scene.loading"></button>
+        <img class="loading-indicator"
+          *ngIf="scene.loading"
+          src="../../assets/imgs/uploading.gif"
+          alt="">
+        <input class="scene-text"
+          placeholder="Add text"
+          type="text">
       </div>
-      <ion-input class="scene-text"
-        placeholder="Add text"
-        [(ngModel)]="scene.text"
-        clearInput></ion-input>
     </ion-slide>
   </ion-slides>
-  <button ion-button
-          [navPush]="playPage"
-  >Juggle</button>
 </ion-content>
+
+<ion-footer>
+  <div class="bottom-controls">
+    <button ion-button icon-left
+      (click)="addScene()">
+      <ion-icon name="add"></ion-icon>Add scene</button>
+    <button ion-button
+      [navPush]="playPage">Juggle</button>
+  </div>
+</ion-footer>

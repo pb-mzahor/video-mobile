@@ -6,7 +6,7 @@ import { clamp } from 'ionic-angular/util/util';
 import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { CloudinaryService } from '../../services/CloudinaryService';
-import {PlayPage} from '../play/play';
+import { PlayPage } from '../play/play';
 
 @Component({
   selector: 'page-home',
@@ -32,13 +32,21 @@ export class HomePage {
   }
 
   async addImage(scene) {
-    const imageData = await this.camera.getPicture({
-      sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-      destinationType: this.camera.DestinationType.DATA_URL
-    });
+    scene.loading = true;
 
-    scene.base64Image = `data:image/jpeg;base64,${imageData}`;
-    scene.imageUrl = await this.cloudinaryService.uploadBase64Image(scene.base64Image);
-    console.log(scene.imageUrl);
+    try {
+      const imageData = await this.camera.getPicture({
+        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        destinationType: this.camera.DestinationType.DATA_URL
+      });
+
+      scene.base64Image = `data:image/jpeg;base64,${imageData}`;
+      scene.imageUrl = await this.cloudinaryService.uploadBase64Image(scene.base64Image);
+      scene.imageUrlStyle = `url(${scene.imageUrl})`;
+    } catch (error) {
+      console.error(error);
+    }
+    
+    scene.loading = false;
   }
 }

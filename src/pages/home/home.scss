@@ -1,6 +1,11 @@
 page-home {
+    // .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+    //     bottom: 70px;
+    // }
+
     ion-slide {
-        padding: 20px;
+        padding: 10px;
+        padding-bottom: 30px;
         position: relative;
 
         .slide-zoom {
@@ -11,20 +16,58 @@ page-home {
     }
 
     .scene-media-container {
+        margin: 5px;
+        position: relative;
         flex-grow: 1;
         display: flex;
         justify-content: center;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 1px 1px 6px 1px #ccc;
+    }
 
-        .scene-media {
-            align-self: center;
-        }
+    .media-button {
+        align-self: center;
+        background: url(../../assets/imgs/camera-plus.svg);
+        background-repeat: no-repeat;
+        height: 80px;
+        width: 80px;
+    }
+
+    .bottom-controls {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+
+    .loading-indicator {
+        height: 100px;
+        width: 100px;
+        align-self: center;
     }
 
     .scene-text {
+        position: absolute;
+        bottom: 10px;
         flex-grow: 0;
-    }
-
-    .scroll-content {
+        padding: 10px !important;
+        left: 10px;
+        right: 10px;
+        // height: 2em;
+        border-radius: 10px;
+        font-size: 26px;
+        border: 1px dashed #ccc;
         padding-bottom: 20px;
+        background-color: rgba(240, 240, 240, 0.6);
+        outline: none;
+        box-shadow: none;
+    }
+    
+    .bottom-controls {
+        button {
+            width: 120px;
+        }
     }
 }
