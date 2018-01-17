@@ -7,11 +7,11 @@
         <button class="media-button"
           (click)="addImage(scene)"
           *ngIf="!scene.base64Image && !scene.loading"></button>
-        <img class="loading-indicator"
-          *ngIf="scene.loading"
-          src="../../assets/imgs/uploading.gif"
-          alt="">
-        <div class="scene-text-container">
+        <div class="spinner"
+          *ngIf="scene.loading">
+        </div>
+        <div class="scene-text-container"
+          (click)="noop($event)">
           <input class="scene-text"
             placeholder="Add text"
             type="text">
