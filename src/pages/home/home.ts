@@ -86,7 +86,7 @@ export class HomePage implements AfterViewInit {
 
     try {
       const response: any = await this.generatorService.generateVideo(videoData)
-      await this.generatorService.waitForVideoReady(response.temp.mp4.src);
+      await this.generatorService.waitForVideoReady(response.temp.webm.src);
       this.isGenerating = false;
       loader.dismiss();
       this.navCtrl.push(PlayPage, {
