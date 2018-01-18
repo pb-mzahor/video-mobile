@@ -77,7 +77,7 @@ export class HomePage implements AfterViewInit {
     }
 
     const spec = this.videoSpecService.buildVideoSpec();
-    console.log(spec);
+
     this.onGenerateClick();
   }
 
