@@ -8,7 +8,7 @@ import { Slides } from 'ionic-angular';
 import { CloudinaryService } from '../../services/CloudinaryService';
 import { PlayPage } from '../play/play';
 import { VideoSpecService } from '../../services/VideoSpecService';
-import {GeneratorService} from "../../services/GeneratorService";
+import { GeneratorService } from "../../services/GeneratorService";
 
 @Component({
   selector: 'page-home',
@@ -32,7 +32,7 @@ export class HomePage {
   }
 
   async addScene() {
-    this.videoSpecService.scenes.push({});
+    this.videoSpecService.addScene();
     setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
   }
 
@@ -73,28 +73,37 @@ export class HomePage {
     loader.present();
     this.generatorService.generateVideo('')
       .subscribe(
-        response => {
-          this.isGenerating = false;
-          loader.dismiss();
-          this.navCtrl.push(PlayPage, {
-            videoObj: response.temp
-          });
-        },
-        error => {
-          loader.dismiss();
-          console.log(error);
+      response => {
+        this.isGenerating = false;
+        loader.dismiss();
+        this.navCtrl.push(PlayPage, {
+          videoObj: response.temp
         });
+      },
+      error => {
+        loader.dismiss();
+        console.log(error);
+      });
   }
 
   createLoader() {
     return this.loadingCtrl.create({
       content: "<video autoplay loop>" +
-      "<source src='https://img.playbuzz.com/video/upload/v1516201377/b2obarrvbiepgrsdd0pk.mp4'>" +
-      "</video>",
+        "<source src='https://img.playbuzz.com/video/upload/v1516201377/b2obarrvbiepgrsdd0pk.mp4'>" +
+        "</video>",
       spinner: 'hide',
       cssClass: 'videoOverlayLoader',
       showBackdrop: false
     });
   }
 
+  isSceneRemovable(scene) {
+    return this.videoSpecService.scenes.length > 1;
+  }
+
+  removeScene(scene) {
+    const idx = this.slides.getActiveIndex();
+    this.slides.slideTo(idx === 0 ? 0 : idx - 1);
+    this.videoSpecService.removeScene(scene);
+  }
 }

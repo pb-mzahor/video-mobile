@@ -37,32 +37,32 @@ page-home {
         border: 1px dashed black;
     }
 
-    .replace-media-button {
+    .scene-button {
         position: absolute;
-        right: 64px;
         top: 10px;
-        background: url(../../assets/imgs/replace.svg);
+        height: 44px;
+        width: 44px;
+        border-radius: 10px;
         background-repeat: no-repeat;
         background-position: center;
         background-size: 70%;
-        border-radius: 10px;
-        height: 44px;
-        width: 44px;
         background-color: rgba(223, 223, 223, 0.623);
     }
 
+    .replace-media-button {
+        right: 64px;
+        background-image: url(../../assets/imgs/replace.svg);
+        
+    }
+
     .remove-media-button {
-        position: absolute;
         right: 10px;
-        top: 10px;
-        background: url(../../assets/imgs/trash.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 70%;
-        border-radius: 10px;
-        height: 44px;
-        width: 44px;
-        background-color: rgba(223, 223, 223, 0.623);
+        background-image: url(../../assets/imgs/trash.svg);
+    }
+
+    .remove-scene-button {
+        left: 10px;
+        background-image: url(../../assets/imgs/trash.svg);
     }
 
     .bottom-controls {

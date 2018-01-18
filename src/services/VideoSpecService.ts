@@ -3,9 +3,28 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class VideoSpecService {
     public scenes: any[];
+    private idCounter: number = 1;
 
     constructor() {
         this.scenes = [];
+    }
+
+    private newId() {
+        return this.idCounter++;
+    }
+
+    addScene() {
+        this.scenes.push({
+            id: this.newId()
+        });
+    }
+
+    removeScene(scene) {
+        const index = this.scenes.findIndex(x => x.id === scene.id);
+
+        if (index !== -1) {
+            this.scenes.splice(index, 1);
+        }
     }
 
     buildVideoSpec() {
