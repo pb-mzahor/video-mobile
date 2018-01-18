@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Juggler
+      <img class="navbar-image" src="../assets/imgs/Juggler-Logo.png"/>
     </ion-title>
     <ion-buttons end>
       <button ion-button
@@ -15,8 +15,9 @@
 
 <ion-content class="play-container">
   <div class="media-container">
-    <video controls="controls" (load)="onVideoReady()" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="video-player">
-      <source src="{{videoObj.mp4.src}}" type="video/mp4" />
+    <video controls="controls" (load)="onVideoReady()" preload="metadata" autoplay="autoplay"
+           webkit-playsinline="webkit-playsinline" class="video-player">
+      <source src="{{videoObj.mp4.src}}" type="video/mp4"/>
     </video>
   </div>
 </ion-content>
@@ -49,15 +50,15 @@
       Uploaded to facebook
     </button>
     <!--<div *ngSwitchCase="'UPLOADING'"-->
-         <!--class="uploading">-->
-      <!--&lt;!&ndash;<ion-spinner class="uploading-spinner"></ion-spinner>&ndash;&gt;-->
-      <!--Uploading...-->
+    <!--class="uploading">-->
+    <!--&lt;!&ndash;<ion-spinner class="uploading-spinner"></ion-spinner>&ndash;&gt;-->
+    <!--Uploading...-->
     <!--</div>-->
     <!--<a *ngSwitchCase="'UPLOAD_COMPLETE'"-->
-       <!--class="upload-done"-->
-       <!--href="{{videosYouCanCrosspostURL}}">-->
-      <!--<ion-icon name="checkmark" class="check"></ion-icon>-->
-      <!--Uploaded to facebook-->
+    <!--class="upload-done"-->
+    <!--href="{{videosYouCanCrosspostURL}}">-->
+    <!--<ion-icon name="checkmark" class="check"></ion-icon>-->
+    <!--Uploaded to facebook-->
     <!--</a>-->
   </div>
 </ion-footer>
