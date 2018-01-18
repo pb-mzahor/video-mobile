@@ -7,6 +7,7 @@ import { ViewChild } from '@angular/core';
 import { Slides } from 'ionic-angular';
 import { CloudinaryService } from '../../services/CloudinaryService';
 import { PlayPage } from '../play/play';
+import { VideoSpecService } from '../../services/VideoSpecService';
 
 @Component({
   selector: 'page-home',
@@ -14,20 +15,19 @@ import { PlayPage } from '../play/play';
 })
 export class HomePage {
   playPage = PlayPage;
-  public scenes: any[];
   @ViewChild(Slides) slides: Slides;
 
   constructor(
     public navCtrl: NavController,
     public camera: Camera,
     public cloudinaryService: CloudinaryService,
+    public videoSpecService: VideoSpecService,
   ) {
-    this.scenes = [];
-    this.scenes.push({});
+    this.videoSpecService.scenes.push({});
   }
 
   async addScene() {
-    this.scenes.push({});
+    this.videoSpecService.scenes.push({});
     setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
   }
 
@@ -53,7 +53,12 @@ export class HomePage {
     } catch (error) {
       console.error(error);
     }
-    
+
     scene.loading = false;
+  }
+
+  async juggle() {
+    const spec = this.videoSpecService.buildVideoSpec();
+    console.log(spec);
   }
 }

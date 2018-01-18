@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-slides [pager]="true">
-    <ion-slide *ngFor="let scene of scenes">
+    <ion-slide *ngFor="let scene of videoSpecService.scenes">
       <div class="scene-media-container"
         [style.background-image]="scene.imageUrlStyle">
         <button class="media-button"
@@ -24,6 +24,7 @@
         <div class="scene-text-container">
           <input class="scene-text"
             placeholder="Add text"
+            [(ngModel)]="scene.text"
             type="text">
         </div>
       </div>
@@ -40,6 +41,6 @@
       <ion-icon name="add"></ion-icon>Add scene</button>
     <button ion-button
       class="juggle-button"
-      [navPush]="playPage">Juggle</button>
+      (click)="juggle()">Juggle</button>
   </div>
 </ion-footer>
