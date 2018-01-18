@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PlayPage } from '../pages/play/play';
 import { CloudinaryService } from '../services/CloudinaryService';
+import { VideoSpecService } from '../services/VideoSpecService';
 import { GeneratorService } from '../services/GeneratorService';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     CloudinaryService,
+    VideoSpecService,
     GeneratorService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,

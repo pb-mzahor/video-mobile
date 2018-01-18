@@ -1,20 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Juggler</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
   <ion-slides [pager]="true">
-    <ion-slide *ngFor="let scene of scenes">
+    <ion-slide *ngFor="let scene of videoSpecService.scenes">
       <div class="scene-media-container"
-           (click)="addImage(scene)"
-           [style.background-image]="scene.imageUrlStyle">
+        [style.background-image]="scene.imageUrlStyle">
         <button class="media-button"
-                (click)="addImage(scene)"
-                *ngIf="!scene.base64Image && !scene.loading"></button>
+          (click)="addImage(scene)"
+          *ngIf="!scene.base64Image && !scene.loading"></button>
+        <button class="replace-media-button"
+          (click)="addImage(scene)"
+          *ngIf="scene.imageUrlStyle"></button>
+        <button class="remove-media-button"
+          (click)="removeImage(scene)"
+          *ngIf="scene.imageUrlStyle"></button>
         <div class="spinner"
-             *ngIf="scene.loading">
+          *ngIf="scene.loading">
         </div>
-        <div class="scene-text-container"
-             (click)="noop($event)">
+        <div class="scene-text-container">
           <input class="scene-text"
-                 placeholder="Add text"
-                 type="text">
+            placeholder="Add text"
+            [(ngModel)]="scene.text"
+            type="text">
         </div>
       </div>
     </ion-slide>
@@ -24,16 +35,12 @@
 <ion-footer>
   <div class="bottom-controls">
     <button ion-button
-            outline
-            icon-left
-            (click)="addScene()">
-      <ion-icon name="add"></ion-icon>
-      Add scene
-    </button>
+      outline
+      icon-left
+      (click)="addScene()">
+      <ion-icon name="add"></ion-icon>Add scene</button>
     <button ion-button
-            class="juggle-button"
-            (click)="onGenerateClick()">
-      Juggle
-    </button>
+      class="juggle-button"
+      (click)="juggle()">Juggle</button>
   </div>
 </ion-footer>

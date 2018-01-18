@@ -7,18 +7,28 @@
       <button ion-button
         icon-only
         (click)="saveVideo()">
-        <ion-icon name="checkmark"> Save </ion-icon>
+        <ion-icon name="checkmark"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
-    <source [src]="video.mp4.src" type="video/mp4" />
-  </video>
-  <button ion-button
-          (click)="crosspost()">
-    Upload to FB page
-  </button>
+<ion-content class="play-container">
+  <div class="media-container">
+    <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="video-player">
+      <source [src]="video.mp4.src" type="video/mp4" />
+    </video>
+  </div>
 </ion-content>
+<ion-footer>
+  <div class="play-bottom-controls">
+    <button ion-button
+            outline
+            icon-left
+            (click)="crosspost()"
+            class="fb-button">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Upload to facebook page
+    </button>
+  </div>
+</ion-footer>
