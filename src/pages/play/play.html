@@ -15,9 +15,8 @@
 
 <ion-content class="play-container">
   <div class="media-container">
-    <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline"
-           class="video-player">
-      <source src="{{video.mp4.src}}" type="video/mp4"/>
+    <video controls="controls" (load)="onVideoReady()" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="video-player">
+      <source src="{{videoObj.mp4.src}}" type="video/mp4" />
     </video>
   </div>
 </ion-content>

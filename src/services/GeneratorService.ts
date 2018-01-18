@@ -15,7 +15,7 @@ export class GeneratorService {
   generateVideo(videoData) {
     const url = this.generateUrl + '/mobile/generate';
     const requestConfig = {
-      videoData: AppConstants.videoData,
+      videoData: videoData,
     };
     return this.http.post(url, requestConfig);
   }

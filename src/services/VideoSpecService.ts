@@ -60,7 +60,6 @@ export class VideoSpecService {
             "lineup": [
             ]
         };
-
         return spec;
     }
 
