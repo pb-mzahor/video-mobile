@@ -13,10 +13,10 @@ export class VideoSpecService {
         return this.idCounter++;
     }
 
-    addScene() {
-        this.scenes.push({
+    addSceneAfter(currentSceneIndex) {
+        this.scenes.splice(currentSceneIndex + 1, 0, [{
             id: this.newId()
-        });
+        }]);
     }
 
     removeScene(scene) {
