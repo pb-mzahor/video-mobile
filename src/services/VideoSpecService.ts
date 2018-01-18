@@ -9,6 +9,12 @@ export class VideoSpecService {
         this.scenes = [];
     }
 
+    newScene() {
+        this.scenes.push({
+            id: this.newId()
+        })
+    }
+
     private newId() {
         return this.idCounter++;
     }
@@ -23,7 +29,7 @@ export class VideoSpecService {
         const index = this.scenes.findIndex(x => x.id === scene.id);
 
         if (index !== -1) {
-            this.scenes.splice(index, 1);
+            this.scenes.splice(index + 1, 1);
         }
     }
 

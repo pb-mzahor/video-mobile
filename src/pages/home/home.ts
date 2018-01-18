@@ -29,7 +29,7 @@ export class HomePage implements AfterViewInit {
     private generatorService: GeneratorService,
     private alertCtrl: AlertController) {
     this.isGenerating = false;
-    this.videoSpecService.scenes.push({});
+    this.videoSpecService.newScene();
   }
 
   ngAfterViewInit() {
