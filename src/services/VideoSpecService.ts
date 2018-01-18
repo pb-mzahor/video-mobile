@@ -59,7 +59,7 @@ export class VideoSpecService {
             "output": {},
             "background": {
                 "audio": {
-                    "href": "https://cdn.playbuzz.com/video-creator-folders/video-creator-music/Acoustic/818560_ROCKOLDIES%20Acoustic%20Fun%20FULL%20TRACK%20with%20brass%20section.mp3",
+                    "href": "https://cdn.playbuzz.com/video-creator-folders/video-creator-music/High_Energy/978111_87486219.mp3",
                     "role": "music"
                 }
             },
