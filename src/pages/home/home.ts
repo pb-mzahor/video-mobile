@@ -31,10 +31,6 @@ export class HomePage {
     setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
   }
 
-  noop($event) {
-    $event.stopPropagation();
-  }
-
   async addImage(scene) {
     scene.loading = true;
 

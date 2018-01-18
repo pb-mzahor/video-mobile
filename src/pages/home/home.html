@@ -1,17 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Juggler</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
   <ion-slides [pager]="true">
     <ion-slide *ngFor="let scene of scenes">
       <div class="scene-media-container"
-        (click)="addImage(scene)"
         [style.background-image]="scene.imageUrlStyle">
         <button class="media-button"
           (click)="addImage(scene)"
           *ngIf="!scene.base64Image && !scene.loading"></button>
+        <button class="replace-media-button"
+          (click)="replaceImage(scene)"
+          *ngIf="scene.base64Image && !scene.loading"></button>
         <div class="spinner"
           *ngIf="scene.loading">
         </div>
-        <div class="scene-text-container"
-          (click)="noop($event)">
+        <div class="scene-text-container">
           <input class="scene-text"
             placeholder="Add text"
             type="text">
