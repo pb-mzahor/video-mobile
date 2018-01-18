@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { Camera } from '@ionic-native/camera';
-import { clamp } from 'ionic-angular/util/util';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
-import { CloudinaryService } from '../../services/CloudinaryService';
-import { PlayPage } from '../play/play';
-import { VideoSpecService } from '../../services/VideoSpecService';
+import {Component} from '@angular/core';
+import {NavController, LoadingController} from 'ionic-angular';
+import {ImagePicker} from '@ionic-native/image-picker';
+import {Camera} from '@ionic-native/camera';
+import {clamp} from 'ionic-angular/util/util';
+import {ViewChild} from '@angular/core';
+import {Slides} from 'ionic-angular';
+import {CloudinaryService} from '../../services/CloudinaryService';
+import {PlayPage} from '../play/play';
+import {VideoSpecService} from '../../services/VideoSpecService';
 import {GeneratorService} from "../../services/GeneratorService";
 
 @Component({
@@ -19,14 +19,12 @@ export class HomePage {
   isGenerating: boolean;
   @ViewChild(Slides) slides: Slides;
 
-  constructor(
-    public navCtrl: NavController,
-    public loadingCtrl: LoadingController,
-    public camera: Camera,
-    public cloudinaryService: CloudinaryService,
-    private generatorService: GeneratorService,
-    public videoSpecService: VideoSpecService,
-  ) {
+  constructor(public navCtrl: NavController,
+              public loadingCtrl: LoadingController,
+              public camera: Camera,
+              public cloudinaryService: CloudinaryService,
+              private generatorService: GeneratorService,
+              public videoSpecService: VideoSpecService,) {
     this.isGenerating = false;
     this.videoSpecService.scenes.push({});
   }
@@ -41,7 +39,6 @@ export class HomePage {
     delete scene.imageUrl;
     delete scene.imageUrlStyle;
   }
-
   async addImage(scene) {
     scene.loading = true;
 
@@ -63,15 +60,15 @@ export class HomePage {
 
   async juggle() {
     const spec = this.videoSpecService.buildVideoSpec();
-    console.log(spec);
-    this.onGenerateClick();
+    // console.log(spec);
+    this.generateVideo(spec);
   }
 
-  async onGenerateClick() {
+  async generateVideo(videoData) {
     this.isGenerating = true;
     let loader = this.createLoader();
     loader.present();
-    this.generatorService.generateVideo('')
+    this.generatorService.generateVideo(videoData)
       .subscribe(
         response => {
           this.isGenerating = false;
