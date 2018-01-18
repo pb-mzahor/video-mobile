@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PlayPage } from '../pages/play/play';
 import { CloudinaryService } from '../services/CloudinaryService';
+import { VideoSpecService } from '../services/VideoSpecService';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     CloudinaryService,
+    VideoSpecService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
   ]
