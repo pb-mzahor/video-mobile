@@ -17,8 +17,15 @@
   <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
     <source src="http://img.playbuzz.com/video/upload/w_200,h_720,g_center,c_crop/up0szhaqpakhv4dnzpkz.mp4" type="video/mp4" />
   </video>
-  <button ion-button
-          (click)="crosspost()">
-    Upload to FB page
-  </button>
 </ion-content>
+<ion-footer>
+  <div class="bottom-controls">
+    <button ion-button
+            outline
+            icon-left
+            (click)="crosspost()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Upload to FB page
+    </button>
+  </div>
+</ion-footer>
