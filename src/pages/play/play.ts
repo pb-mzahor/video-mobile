@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {NavController, LoadingController, NavParams} from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -7,9 +8,11 @@ import 'rxjs/add/operator/toPromise';
   templateUrl: 'play.html'
 })
 export class PlayPage {
-
-  constructor(private http: HttpClient) { }
-
+  video: any;
+  constructor(private http: HttpClient, private params: NavParams) {
+    this.video = params.get('videoObj');
+    console.log(this.video);
+  }
 
   async saveVideo() {
   }

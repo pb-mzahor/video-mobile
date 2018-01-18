@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +13,22 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.loading-md .loading-wrapper {
+  background-color: transparent;
+  max-width: none;
+  max-height: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  width: 100%;
+
+  .loading-content {
+    width: 100%;
+
+    & > video {
+      width: 100%;
+    }
+  }
+}
+

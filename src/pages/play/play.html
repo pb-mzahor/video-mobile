@@ -15,7 +15,7 @@
 
 <ion-content>
   <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
-    <source src="http://img.playbuzz.com/video/upload/w_200,h_720,g_center,c_crop/up0szhaqpakhv4dnzpkz.mp4" type="video/mp4" />
+    <source [src]="video.mp4.src" type="video/mp4" />
   </video>
   <button ion-button
           (click)="crosspost()">
