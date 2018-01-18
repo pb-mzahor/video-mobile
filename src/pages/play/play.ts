@@ -15,7 +15,7 @@ export class PlayPage {
   constructor(private http: HttpClient, private params: NavParams) {
     this.videoObj = params.get('videoObj');
     this.state = 'DEFAULT';
-    console.log(this.videoObj);
+    console.log(JSON.stringify(this.videoObj));
   }
 
   onVideoReady() {

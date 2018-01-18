@@ -5,8 +5,8 @@
     </ion-title>
     <ion-buttons end>
       <button ion-button
-              icon-only
-              (click)="saveVideo()">
+        icon-only
+        (click)="saveVideo()">
         <ion-icon name="checkmark"></ion-icon>
       </button>
     </ion-buttons>
@@ -15,31 +15,40 @@
 
 <ion-content class="play-container">
   <div class="media-container">
-    <video controls="controls" (load)="onVideoReady()" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="video-player">
-      <source src="{{videoObj.mp4.src}}" type="video/mp4" />
+    <video controls="controls"
+      (load)="onVideoReady()"
+      preload="metadata"
+      autoplay="autoplay"
+      webkit-playsinline="webkit-playsinline"
+      class="video-player">
+      <source src="{{videoObj.mp4.src}}"
+        type="video/mp4" />
     </video>
   </div>
 </ion-content>
+
 <ion-footer>
-  <div class="play-bottom-controls" [ngSwitch]="state">
+  <div class="play-bottom-controls"
+    [ngSwitch]="state">
     <button *ngSwitchDefault
-            ion-button
-            outline
-            icon-left
-            (click)="crosspost()"
-            class="fb-button">
+      ion-button
+      outline
+      icon-left
+      (click)="crosspost()"
+      class="fb-button">
       <ion-icon name="logo-facebook"></ion-icon>
       Upload to facebook page
     </button>
     <div *ngSwitchCase="'UPLOADING'"
-         class="uploading">
+      class="uploading">
       <!--<ion-spinner class="uploading-spinner"></ion-spinner>-->
       Uploading...
     </div>
     <a *ngSwitchCase="'UPLOAD_COMPLETE'"
-       class="upload-done"
-       href="{{videosYouCanCrosspostURL}}">
-      <ion-icon name="checkmark" class="check"></ion-icon>
+      class="upload-done"
+      href="{{videosYouCanCrosspostURL}}">
+      <ion-icon name="checkmark"
+        class="check"></ion-icon>
       Uploaded to facebook
     </a>
   </div>

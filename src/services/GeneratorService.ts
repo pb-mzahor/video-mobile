@@ -1,10 +1,10 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {AppConstants} from './AppConstants'
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { AppConstants } from './AppConstants'
 
 @Injectable()
 export class GeneratorService {
-  http: any;
+  http: HttpClient;
   generateUrl: string;
 
   constructor(http: HttpClient) {
@@ -17,6 +17,10 @@ export class GeneratorService {
     const requestConfig = {
       videoData: videoData,
     };
-    return this.http.post(url, requestConfig);
+    return this.http.post(url, requestConfig).toPromise();
+  }
+
+  waitForVideoReady(src) {
+    return this.http.head(src, { responseType: 'arraybuffer' }).toPromise();
   }
 }
