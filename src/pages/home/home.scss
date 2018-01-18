@@ -25,13 +25,27 @@ page-home {
         box-shadow: 1px 1px 6px 1px #ccc;
     }
 
-    .media-button {
+    .media-button-image {
         align-self: center;
         background: url(../../assets/imgs/add-media.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 90%;
         border-radius: 10px;
+        border: 1px dashed black;
+        height: 100px;
+        width: 110px;
+        margin-right: 15px;
+    }
+
+    .media-button-camera {
+        align-self: center;
+        background: url(../../assets/imgs/camera-plus.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90%;
+        border-radius: 10px;
+        border: 1px dashed black;
         height: 100px;
         width: 110px;
     }

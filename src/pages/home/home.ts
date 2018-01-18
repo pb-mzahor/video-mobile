@@ -49,12 +49,16 @@ export class HomePage implements AfterViewInit {
     delete scene.imageUrlStyle;
   }
 
-  async addImage(scene) {
+  async addCamera(scene) {
+    return this.addImage(scene, true);
+  }
+
+  async addImage(scene, useCam) {
     scene.loading = true;
 
     try {
       const imageData = await this.camera.getPicture({
-        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        sourceType: useCam ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.SAVEDPHOTOALBUM,
         destinationType: this.camera.DestinationType.DATA_URL
       });
 
