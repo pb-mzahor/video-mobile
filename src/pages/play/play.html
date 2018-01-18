@@ -31,16 +31,32 @@
       <ion-icon name="logo-facebook"></ion-icon>
       Upload to facebook page
     </button>
-    <div *ngSwitchCase="'UPLOADING'"
-         class="uploading">
-      <!--<ion-spinner class="uploading-spinner"></ion-spinner>-->
+    <button *ngSwitchCase="'UPLOADING'"
+            ion-button
+            outline
+            icon-left
+            class="fb-button">
+      <ion-icon name="logo-facebook"></ion-icon>
       Uploading...
-    </div>
-    <a *ngSwitchCase="'UPLOAD_COMPLETE'"
-       class="upload-done"
-       href="{{videosYouCanCrosspostURL}}">
+    </button>
+    <button *ngSwitchCase="'UPLOAD_COMPLETE'"
+            ion-button
+            outline
+            icon-left
+            class="upload-done">
       <ion-icon name="checkmark" class="check"></ion-icon>
       Uploaded to facebook
-    </a>
+    </button>
+    <!--<div *ngSwitchCase="'UPLOADING'"-->
+         <!--class="uploading">-->
+      <!--&lt;!&ndash;<ion-spinner class="uploading-spinner"></ion-spinner>&ndash;&gt;-->
+      <!--Uploading...-->
+    <!--</div>-->
+    <!--<a *ngSwitchCase="'UPLOAD_COMPLETE'"-->
+       <!--class="upload-done"-->
+       <!--href="{{videosYouCanCrosspostURL}}">-->
+      <!--<ion-icon name="checkmark" class="check"></ion-icon>-->
+      <!--Uploaded to facebook-->
+    <!--</a>-->
   </div>
 </ion-footer>
