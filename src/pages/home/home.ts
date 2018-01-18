@@ -9,6 +9,7 @@ import { CloudinaryService } from '../../services/CloudinaryService';
 import { PlayPage } from '../play/play';
 import { VideoSpecService } from '../../services/VideoSpecService';
 import { GeneratorService } from "../../services/GeneratorService";
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -26,6 +27,7 @@ export class HomePage {
     public cloudinaryService: CloudinaryService,
     private generatorService: GeneratorService,
     public videoSpecService: VideoSpecService,
+    private alertCtrl: AlertController
   ) {
     this.isGenerating = false;
     this.videoSpecService.scenes.push({});
@@ -62,6 +64,11 @@ export class HomePage {
   }
 
   async juggle() {
+    if (!this.isReadyToJuggle()) {
+      this.showValidationAlert();
+      return;
+    }
+
     const spec = this.videoSpecService.buildVideoSpec();
     console.log(spec);
     this.onGenerateClick();
@@ -105,5 +112,18 @@ export class HomePage {
     const idx = this.slides.getActiveIndex();
     this.slides.slideTo(idx === 0 ? 0 : idx - 1);
     this.videoSpecService.removeScene(scene);
+  }
+
+  isReadyToJuggle() {
+    return this.videoSpecService.areScenesValid();
+  }
+
+  private showValidationAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Missing content',
+      subTitle: 'Please add images to all scenes',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

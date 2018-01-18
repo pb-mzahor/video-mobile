@@ -44,6 +44,7 @@
       <ion-icon name="add"></ion-icon>Add scene</button>
     <button ion-button
       class="juggle-button"
-      (click)="juggle()">Juggle</button>
+      (click)="juggle()"
+      [ngClass]="{enabled: isReadyToJuggle()}">Juggle</button>
   </div>
 </ion-footer>

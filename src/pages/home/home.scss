@@ -105,7 +105,11 @@ page-home {
 
             &.juggle-button {
                 font-weight: bold;
-                background-image: linear-gradient(258deg, #55bcfc, #ca70ff);
+                background-color: rgb(175, 175, 175);
+
+                &.enabled {
+                    background-image: linear-gradient(258deg, #55bcfc, #ca70ff);
+                }
             }
         }
     }
@@ -113,7 +117,7 @@ page-home {
 
 .spinner {
     margin: 100px auto;
-    font-size: 20px;
+    font-size: 15px;
     width: 1em;
     height: 1em;
     border-radius: 50%;
@@ -125,6 +129,7 @@ page-home {
     -ms-transform: translateZ(0);
     transform: translateZ(0);
   }
+
   @-webkit-keyframes load5 {
     0%,
     100% {
@@ -152,6 +157,7 @@ page-home {
       box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
     }
   }
+  
   @keyframes load5 {
     0%,
     100% {
