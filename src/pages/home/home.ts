@@ -60,5 +60,6 @@ export class HomePage {
   async juggle() {
     const spec = this.videoSpecService.buildVideoSpec();
     console.log(spec);
+    this.navCtrl.push(PlayPage);
   }
 }
