@@ -16,6 +16,7 @@ import {GeneratorService} from "../../services/GeneratorService";
 })
 export class HomePage {
   playPage = PlayPage;
+  isGenerating: boolean;
   @ViewChild(Slides) slides: Slides;
 
   constructor(
@@ -26,6 +27,7 @@ export class HomePage {
     private generatorService: GeneratorService,
     public videoSpecService: VideoSpecService,
   ) {
+    this.isGenerating = false;
     this.videoSpecService.scenes.push({});
   }
 
@@ -62,7 +64,7 @@ export class HomePage {
   async juggle() {
     const spec = this.videoSpecService.buildVideoSpec();
     console.log(spec);
-    this.navCtrl.push(PlayPage);
+    this.onGenerateClick();
   }
 
   async onGenerateClick() {
