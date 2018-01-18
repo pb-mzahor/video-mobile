@@ -13,8 +13,11 @@
           (click)="addImage(scene)"
           *ngIf="!scene.base64Image && !scene.loading"></button>
         <button class="replace-media-button"
-          (click)="replaceImage(scene)"
-          *ngIf="scene.base64Image && !scene.loading"></button>
+          (click)="addImage(scene)"
+          *ngIf="scene.imageUrlStyle"></button>
+        <button class="remove-media-button"
+          (click)="removeImage(scene)"
+          *ngIf="scene.imageUrlStyle"></button>
         <div class="spinner"
           *ngIf="scene.loading">
         </div>

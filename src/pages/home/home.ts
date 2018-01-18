@@ -31,6 +31,12 @@ export class HomePage {
     setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
   }
 
+  removeImage(scene) {
+    delete scene.base64Image;
+    delete scene.imageUrl;
+    delete scene.imageUrlStyle;
+  }
+
   async addImage(scene) {
     scene.loading = true;
 
@@ -41,6 +47,7 @@ export class HomePage {
       });
 
       scene.base64Image = `data:image/jpeg;base64,${imageData}`;
+      delete scene.imageUrlStyle;
       scene.imageUrl = await this.cloudinaryService.uploadBase64Image(scene.base64Image);
       scene.imageUrlStyle = `url(${scene.imageUrl})`;
     } catch (error) {
