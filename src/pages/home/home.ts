@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Camera } from '@ionic-native/camera';
@@ -15,27 +15,34 @@ import { AlertController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements AfterViewInit {
+  @ViewChild(Slides) slides: Slides;
   playPage = PlayPage;
   isGenerating: boolean;
-  @ViewChild(Slides) slides: Slides;
+  currentSlideIndex: number = 0;
 
   constructor(
     public navCtrl: NavController,
     public loadingCtrl: LoadingController,
     public camera: Camera,
     public cloudinaryService: CloudinaryService,
-    private generatorService: GeneratorService,
     public videoSpecService: VideoSpecService,
+    private generatorService: GeneratorService,
     private alertCtrl: AlertController
   ) {
     this.isGenerating = false;
     this.videoSpecService.scenes.push({});
   }
 
+  ngAfterViewInit() {
+    this.slides.ionSlideDidChange.subscribe(() => {
+      this.currentSlideIndex = this.slides.getActiveIndex();
+    });
+  }
+
   async addScene() {
-    this.videoSpecService.addScene();
-    setTimeout(() => this.slides.slideTo(this.slides.length() - 1, 500), 100);
+    this.videoSpecService.addSceneAfter(this.currentSlideIndex);
+    setTimeout(() => this.slides.slideNext(), 100);
   }
 
   removeImage(scene) {
