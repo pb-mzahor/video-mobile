@@ -16,7 +16,7 @@
 <ion-content class="play-container">
   <div class="media-container">
     <video controls="controls" (load)="onVideoReady()" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="video-player">
-      <source src="{{videoObj.webm.src}}" type="video/webm" />
+      <source src="{{videoSrc}}" type="{{sourceType}}" />
     </video>
   </div>
 </ion-content>

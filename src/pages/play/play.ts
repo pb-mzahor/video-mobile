@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {NavController, LoadingController, NavParams} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { NavController, LoadingController, NavParams, Platform } from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -9,13 +9,27 @@ import 'rxjs/add/operator/toPromise';
 })
 export class PlayPage {
   videoObj: any;
+  videoSrc: string;
+  sourceType: string;
   state: any;
   videosYouCanCrosspostURL: any;
 
-  constructor(private http: HttpClient, private params: NavParams) {
+  constructor(
+    private http: HttpClient,
+    private params: NavParams,
+    public plt: Platform
+  ) {
     this.videoObj = params.get('videoObj');
     this.state = 'DEFAULT';
     console.log(this.videoObj);
+
+    if (this.plt.is('ios')) {
+      this.videoSrc = this.videoObj.m3u8.src;
+      this.sourceType = 'audio/x-mpegurl';
+    } else {
+      this.videoSrc = this.videoObj.webm.src;
+      this.sourceType = 'video/webm';
+    }
   }
 
   onVideoReady() {
