@@ -12,12 +12,15 @@
         <button class="media-button"
           (click)="addImage(scene)"
           *ngIf="!scene.base64Image && !scene.loading"></button>
-        <button class="replace-media-button"
+        <button class="scene-button replace-media-button"
           (click)="addImage(scene)"
           *ngIf="scene.imageUrlStyle"></button>
-        <button class="remove-media-button"
+        <button class="scene-button remove-media-button"
           (click)="removeImage(scene)"
           *ngIf="scene.imageUrlStyle"></button>
+        <button class="scene-button remove-scene-button"
+          (click)="removeScene(scene)"
+          *ngIf="isSceneRemovable(scene)"></button>
         <div class="spinner"
           *ngIf="scene.loading">
         </div>
@@ -41,6 +44,7 @@
       <ion-icon name="add"></ion-icon>Add scene</button>
     <button ion-button
       class="juggle-button"
-      (click)="juggle()">Juggle</button>
+      (click)="juggle()"
+      [ngClass]="{enabled: isReadyToJuggle()}">Juggle</button>
   </div>
 </ion-footer>
