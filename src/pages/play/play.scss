@@ -1,3 +1,21 @@
 page-play {
+  .media-container{
+    margin: 10px;
+    display: flex;
+  }
+  .play-bottom-controls {
+    margin: 10px;
+    justify-content: center;
+    display: flex;
 
+    button {
+      width: 220px;
+      flex-grow: 1;
+      border-radius: 10px;
+
+      &.fb-button {
+        font-weight: bold;
+      }
+    }
+  }
 }
