@@ -31,7 +31,7 @@ export class PlayPage {
     const url = `https://stg-video-creator.playbuzz.com/mobile/crossPostVideo`;
 
     var request = {
-      videoUrl: this.videoObj.mp4.src,
+      videoUrl: this.videoObj.webm.src,
       facebookPageUrl: "https://www.facebook.com/yosefKaro7TLV",
       sectionId: "79084e72-1125-4d37-a6a9-62837ca660f9",
       itemId: "12277a5f-d3e7-4c3e-8614-a13a23c3f0c4"
