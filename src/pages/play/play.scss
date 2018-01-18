@@ -4,13 +4,13 @@ page-play {
   }
 
   .media-container{
-    margin: 10px;
+    //margin: 10px;
     justify-content: center;
     display: flex;
   }
 
   .video-player {
-    //width: 280px;
+    width: 100%;
     height: 600px;
     object-fit: cover;
     border-radius: 4px;
