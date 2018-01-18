@@ -1,15 +1,15 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { Camera } from '@ionic-native/camera';
-import { clamp } from 'ionic-angular/util/util';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
-import { CloudinaryService } from '../../services/CloudinaryService';
-import { PlayPage } from '../play/play';
-import { VideoSpecService } from '../../services/VideoSpecService';
-import { GeneratorService } from "../../services/GeneratorService";
-import { AlertController } from 'ionic-angular';
+import {Component, AfterViewInit} from '@angular/core';
+import {NavController, LoadingController} from 'ionic-angular';
+import {ImagePicker} from '@ionic-native/image-picker';
+import {Camera} from '@ionic-native/camera';
+import {clamp} from 'ionic-angular/util/util';
+import {ViewChild} from '@angular/core';
+import {Slides} from 'ionic-angular';
+import {CloudinaryService} from '../../services/CloudinaryService';
+import {PlayPage} from '../play/play';
+import {VideoSpecService} from '../../services/VideoSpecService';
+import {GeneratorService} from "../../services/GeneratorService";
+import {AlertController} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -21,15 +21,13 @@ export class HomePage implements AfterViewInit {
   isGenerating: boolean;
   currentSlideIndex: number = 0;
 
-  constructor(
-    public navCtrl: NavController,
-    public loadingCtrl: LoadingController,
-    public camera: Camera,
-    public cloudinaryService: CloudinaryService,
-    public videoSpecService: VideoSpecService,
-    private generatorService: GeneratorService,
-    private alertCtrl: AlertController
-  ) {
+  constructor(public navCtrl: NavController,
+              public loadingCtrl: LoadingController,
+              public camera: Camera,
+              public cloudinaryService: CloudinaryService,
+              public videoSpecService: VideoSpecService,
+              private generatorService: GeneratorService,
+              private alertCtrl: AlertController) {
     this.isGenerating = false;
     this.videoSpecService.scenes.push({});
   }
@@ -87,24 +85,24 @@ export class HomePage implements AfterViewInit {
     loader.present();
     this.generatorService.generateVideo(videoData)
       .subscribe(
-      response => {
-        this.isGenerating = false;
-        loader.dismiss();
-        this.navCtrl.push(PlayPage, {
-          videoObj: response.temp
+        response => {
+          this.isGenerating = false;
+          loader.dismiss();
+          this.navCtrl.push(PlayPage, {
+            videoObj: response.temp
+          });
+        },
+        error => {
+          loader.dismiss();
+          console.log(error);
         });
-      },
-      error => {
-        loader.dismiss();
-        console.log(error);
-      });
   }
 
   createLoader() {
     return this.loadingCtrl.create({
       content: "<video autoplay loop>" +
-        "<source src='https://img.playbuzz.com/video/upload/v1516201377/b2obarrvbiepgrsdd0pk.mp4'>" +
-        "</video>",
+      "<source src='https://img.playbuzz.com/video/upload/vc_h264/v1516279729/wjorshthsqfucvpy0ulc.mp4'>" +
+      "</video>",
       spinner: 'hide',
       cssClass: 'videoOverlayLoader',
       showBackdrop: false
